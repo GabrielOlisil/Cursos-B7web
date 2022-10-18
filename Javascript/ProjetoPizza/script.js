@@ -1,11 +1,29 @@
 import pizzaJson from './pizzas2.js';
 
-const cart = [];
+let cart = [];
 const c = el => document.querySelector(el);
 const cs = el => document.querySelectorAll(el);
 let modalQT = 1;
 let modalKey = 0;
 let modalPriceKey = 0;
+
+
+function setData(){
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function getSavedData(){
+    let savedData = JSON.parse(localStorage.getItem('cart'));
+
+    return savedData && savedData.length ? savedData : [];
+}
+
+cart = getSavedData();
+
+setData();
+updateCart();
+
 
 function removeClassFomArrayItems(array, classe) {
     [...array].forEach(el => {
@@ -120,7 +138,7 @@ c('.pizzaInfo--addButton').addEventListener('click', () =>{
             preco: pizzaJson[modalKey].sizes[modalPriceKey].price,
             indentifier
         });
-
+        setData();
         updateCart();
         closeModal();
         return
@@ -173,13 +191,11 @@ function updateCart(){
         c('aside .subtotal span:last-child').innerHTML = `R$ ${_price.toFixed(2)}`;
         c('aside .desconto span:last-child').innerHTML = `R$ ${(_price * 0.1).toFixed(2)}`;
         c('aside .total span:last-child').innerHTML = `R$ ${(_price * 0.9).toFixed(2)}`;
-
     } else{
         c('aside').classList.remove('show');
         c('aside').style.left = '100vw';
 
         c('aside .cart').removeEventListener('click', changeQtInCart)
-
     }
 }
 
@@ -198,12 +214,13 @@ function changeQtInCart(e){
             cart.length > 0 && cart[cartIndex].quantidade--
 
             cart[cartIndex].quantidade < 1 && cart.splice(cartIndex, 1);
-
+            setData();  
             
         },
         
         more(){
             cart.length > 0 &&  cart[cartIndex].quantidade++
+            setData();
             
         } 
     }
