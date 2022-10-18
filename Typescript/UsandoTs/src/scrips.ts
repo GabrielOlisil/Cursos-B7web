@@ -4,7 +4,7 @@ let num2 = document.getElementById('num2') as HTMLInputElement;
 let botao = document.getElementById('calcular') as HTMLButtonElement;
 let res = document.getElementById('resultado') as HTMLDivElement;
 
-
+let a = 1
 
 function somar(n1:number, n2:number){
     return n1 + n2; // Irá retornar uma string concatenada :(

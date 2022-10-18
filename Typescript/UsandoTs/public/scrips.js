@@ -3,6 +3,7 @@ var num1 = document.getElementById('num1');
 var num2 = document.getElementById('num2');
 var botao = document.getElementById('calcular');
 var res = document.getElementById('resultado');
+var a = 1;
 function somar(n1, n2) {
     return n1 + n2; // Irá retornar uma string concatenada :(
 }
