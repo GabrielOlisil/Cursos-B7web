@@ -1,16 +1,17 @@
-import { Fragment, ReactNode} from 'react'
+
 
 interface Props {
     legend?: string
-    children: ReactNode
+    foto?: string
 }
 
-const Photo = ({ legend, children }: Props) => {
+const Photo = ({ legend, foto }: Props) => {
     return (
-        <Fragment>
-            {children}
+        <div>
+            <img src={foto ?? 'https://octodex.github.com/images/Professortocat_v2.png'} alt="" />
+            
             <p>{legend ?? 'Gato do Git simplesmente'}</p>
-        </Fragment>
+        </div>
 
     )
 }
