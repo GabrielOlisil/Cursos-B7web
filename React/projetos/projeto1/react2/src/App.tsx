@@ -11,6 +11,7 @@ function App() {
     <div className="App">
       Olá, mundo
       <Sty.Header bgColor="#1a1a1a">
+        <span className='red'>OOOOO SPAN</span>
 
         <Sty.Button bg='tomato' small>
           chama muito

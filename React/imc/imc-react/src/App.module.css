@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.headerContainer {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.container {
+    display: flex;
+    max-width: 900px;
+    margin: auto;
+    gap: 80px
+}
+
+.container .leftSide {
+    flex: 1;
+    background-color: beige;
+}
+
+.container .rightSide {
+    flex: 1;
+    background-color: aquamarine;
+
+}

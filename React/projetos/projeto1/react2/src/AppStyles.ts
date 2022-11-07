@@ -21,4 +21,16 @@ export const Header = styled.header<HeaderProps>`
     background-color: ${props => props.bgColor || '#bac'};
     padding: 10px;
 
+    
+
+    .red {
+      color: white
+
+      &:hover {
+        color: #ccaaff;
+      }
+    }
+
+    
+
 `;

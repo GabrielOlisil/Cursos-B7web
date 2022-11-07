@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.title::before{
+  content: ' ';
+  position: absolute;
+  background-color: rgb(230, 154, 68);
+  width: .4em;
+  height: 100%;
+  top: 0;
+  left: -.6em;
+}
