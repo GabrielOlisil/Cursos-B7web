@@ -2,10 +2,13 @@ import styles from './App.module.css'
 import Logo from './assets/powered.png'
 import React, { useState } from 'react';
 import styled from "styled-components";
+import { calcularImc, Level, levels } from './helpers/Imc';
+import { GridItem } from "./components/GridItem";
 
 const App = () => {
   const [heightField, setHeightField] = useState(0)
   const [weightField, setWeightField] = useState(0);
+  const [showItem, setShowItem] = useState<Level | null>();
 
   const [positionMessagemErro, setPositionMessagemErro] = useState('errorMessageClosed');
 
@@ -41,13 +44,33 @@ const App = () => {
                 setPositionMessagemErro('errorMessageOpened');
                 setTimeout(() =>{setPositionMessagemErro('errorMessageClosed')}, 2000);
               }
+              else{
+                setShowItem(calcularImc(heightField, weightField));
+
+                alert(calcularImc(heightField, weightField)?.title);
+              }
             }}>Calcular</button>
           </div>
         </div>
 
 
         <div className={styles.rightSide}>
-          ...
+          {showItem == null &&
+          
+            <div className={styles.grid}>
+              {levels.map((item, key) =>(
+                <GridItem key={key} item={item}/>
+                ))}
+            </div>
+          }
+
+          {showItem &&
+            <div className={styles.rightBig}>
+              {/* <div className={styles.rightArrow}></div> */}
+              <GridItem item={showItem}/>
+
+            </div>
+          }
         </div>
 
       </div>
@@ -73,7 +96,7 @@ const ErrorMessage = ({positionMessagemError, ...props}: ErrorType) => {
     align-items: center;
     justify-content: center;
     transition: transform 3s;
-    transform: translateY(-40px)
+    transform: translateY(-40px);
   `;
 
   const className = positionMessagemError;

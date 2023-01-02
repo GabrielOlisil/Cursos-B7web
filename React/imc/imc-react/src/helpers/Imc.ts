@@ -5,6 +5,7 @@ export interface Level {
     icon: 'down' | 'up';
     imc: number[];
 }
+
 export const levels: Level[] = [
     {
         title: "magreza",
@@ -37,5 +38,7 @@ export const calcularImc = (height: number, weight: number) =>{
     let imc = weight / (Math.pow(height, 2))
 
     let level = levels.find((level) =>(imc >= level.imc[0] && imc <= level.imc[1]))
+
+    return level;
     
 }

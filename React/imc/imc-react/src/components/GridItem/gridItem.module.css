@@ -1,0 +1,55 @@
+.main {
+    flex: 1;
+    color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.main:hover .gridIcon, .main:hover .gridTitle{
+    transform: scale(.6) translatey(-25px);
+    transition: .3s;
+    
+}
+.main:hover .gridTitle{
+    transform: scale(.6) translatey(-70px);
+    margin-top:.5rem;
+    transition: .3s;
+}
+
+.main:hover .gridInfo {
+    display: block;
+    
+    transform: translateY(-20px) scale(1.1);
+    transition:.3s;
+    margin-top: -20px;
+
+}
+.main:hover {
+    padding: 10px 20px;
+}
+
+.gridIcon{
+    width: 70px;
+    height: 70px;
+    border-radius: 70%;
+    background-color: rgba(0, 0, 0, .1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gridTitle{
+    font-size: 29px;
+    font-weight: bold;
+    margin-top: 1rem ;
+}
+
+.gridInfo{
+    display: none;
+    margin: 0;
+}
